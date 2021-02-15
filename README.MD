@@ -19,6 +19,12 @@
 
 ## Notas
 
+- private
+- return, undefined
+- early return ("retorno antecipado")
+- Criar atributo dinamicamente
+- console.table
+
 ```js
 class Cliente {
   nome;
@@ -91,6 +97,37 @@ console.log(contaCorrenteRicardo);
 // ContaCorrente { agencia: 1001, _saldo: 150, qualquerCoisa: 'Alguma coisa'}
 ```
 
+- Para que o interpretador (Node) do js entenda como um módulo...
+
+```
+$  node ./index.js
+
+Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+
+import { Cliente } from "./Cliente.js";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+
+```
+
+... deverá ser criado arquivo package.json com os passos a seguir na raiz do projeto:
+
+```
+$   npm init
+
+digitar <bytebank>
+
+As demais informações pode preencher ou somente dar enter e preencher depois.
+
+Será criado então o arquivo package.json com as configurações do projeto.
+
+Incluir em package.json a configuração "type": "module",
+
+```
+
 ## Referências
 
 - [Instalando e gerenciando várias versões do Node.js com NVM](https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/)
+- [Documentação oficial package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
+- [Documentação oficial 'scripts' dentro do 'package.json'](https://docs.npmjs.com/cli/v7/using-npm/scripts)
