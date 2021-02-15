@@ -126,6 +126,22 @@ Incluir em package.json a configuração "type": "module",
 
 ```
 
+- Passagem por Valor X por Referência
+
+```js
+
+  transferir(valor, conta) {
+    const valorSacado = this.sacar(valor);
+    conta.depositar(valorSacado);
+    //conta.cidade = "São Paulo"; // altera o objeto
+    //valor = 20; // não altera
+  }
+
+```
+
+- Argumento 'valor' é tipo primitivo: passagem por valor (não altera, é uma cópia)
+- Argumento 'conta' é objeto: passagem por referência (alterará o objeto, é uma referência)
+
 ## Referências
 
 - [Instalando e gerenciando várias versões do Node.js com NVM](https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/)
