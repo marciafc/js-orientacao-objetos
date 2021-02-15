@@ -17,12 +17,49 @@ cliente2.cpf = 88822233309;
 
 const contaCorrenteRicardo = new ContaCorrente();
 contaCorrenteRicardo.agencia = 1001;
+contaCorrenteRicardo.cliente = cliente1;
 
 contaCorrenteRicardo.depositar(-100);
 contaCorrenteRicardo.depositar(100);
 contaCorrenteRicardo.depositar(100);
 
 const valorSacado = contaCorrenteRicardo.sacar(50);
-console.log(valorSacado);
 
 console.log(contaCorrenteRicardo);
+/**
+ ContaCorrente {
+  cliente: Cliente { nome: 'Ricardo', cpf: 11122233309 },
+  agencia: 1001,
+  _saldo: 150
+}
+*/
+
+contaCorrenteRicardo.depositar(500);
+
+const conta2 = new ContaCorrente();
+conta2.cliente = cliente2;
+conta2.agencia = 102;
+
+console.log(conta2);
+/**
+ ContaCorrente {
+  cliente: Cliente { nome: 'Alice', cpf: 88822233309 },
+  agencia: 102,
+  _saldo: 0
+}
+ */
+
+let valor = 200;
+contaCorrenteRicardo.transferir(valor, conta2);
+
+console.log("valor: ", valor);
+// valor:  200
+
+console.log(conta2);
+/**
+ContaCorrente {
+  cliente: Cliente { nome: 'Alice', cpf: 88822233309 },
+  agencia: 102,
+  _saldo: 200
+}
+ */
