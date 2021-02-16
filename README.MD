@@ -172,6 +172,42 @@ console.log(conta4);
 // ContaCorrente { cliente: null, agencia: 102, _saldo: 0 }
 ```
 
+- Modificador de acesso
+
+```js
+export class ContaCorrente {
+  agencia;
+
+  // privado por convenção com _
+  _cliente;
+
+  // Isso funciona com a atribuição de igualdade, não chamar como um método
+  //   -> Se tentar chamar como método:
+  //   -> conta2.cliente(cliente1); // TypeError: conta2.cliente is not a function
+  set cliente(novoValor) {
+    // -> Quando escrever Cliente, vai fazer import, mas não coloca o .js (adicionar na mão)
+    // -> Com essa validação, qlq coisa diferente de uma instância de cliente, o valor ficará undefined
+    //    -> conta2.cliente = 0; // ContaCorrente { agencia: 102, _cliente: undefined, _saldo: 200 }
+    if (novoValor instanceof Cliente) {
+      this._cliente = novoValor;
+    }
+  }
+
+  get cliente() {
+    return this._cliente;
+  }
+
+  // Se criar apenas o get, não vai permitir fazer set do atributo
+  // TypeError: Cannot set property saldo of #<ContaCorrente> which has only a getter
+  // conta2.saldo = 100;
+  get saldo() {
+    return this._saldo;
+  }
+
+  //...
+}
+```
+
 ## Referências
 
 - [Instalando e gerenciando várias versões do Node.js com NVM](https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/)
