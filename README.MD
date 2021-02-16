@@ -248,3 +248,4 @@ export class ContaCorrente {
 - [Instalando e gerenciando várias versões do Node.js com NVM](https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/)
 - [Documentação oficial package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
 - [Documentação oficial 'scripts' dentro do 'package.json'](https://docs.npmjs.com/cli/v7/using-npm/scripts)
+- [JavaScript’s Memory Model](https://medium.com/@ethannam/javascripts-memory-model-7c972cd2c239)
