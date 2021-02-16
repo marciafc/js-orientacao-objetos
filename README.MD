@@ -97,7 +97,7 @@ console.log(contaCorrenteRicardo);
 // ContaCorrente { agencia: 1001, _saldo: 150, qualquerCoisa: 'Alguma coisa'}
 ```
 
-- Para que o interpretador (Node) do js entenda como um módulo...
+- Para que o **interpretador (Node) do js** entenda como um **módulo**...
 
 ```
 $  node ./index.js
@@ -139,8 +139,38 @@ Incluir em package.json a configuração "type": "module",
 
 ```
 
-- Argumento 'valor' é tipo primitivo: passagem por valor (não altera, é uma cópia)
-- Argumento 'conta' é objeto: passagem por referência (alterará o objeto, é uma referência)
+    - Argumento 'valor' é tipo primitivo: passagem por valor (não altera, é uma cópia)
+
+
+    - Argumento 'conta' é objeto: passagem por referência (alterará o objeto, é uma referência)
+
+- undefined x null
+
+```js
+const conta2 = new ContaCorrente();
+conta2.cliente = new Cliente();
+
+// Caso não instancie 'conta2.cliente = new Cliente();', irá ocorrer o erro
+// TypeError: Cannot set property 'nome' of undefined
+conta2.cliente.nome = "Alice";
+
+conta2.cliente.cpf = 88822233309;
+conta2.agencia = 102;
+
+const conta3 = new ContaCorrente();
+conta3.agencia = 102;
+console.log("\nConta sem cliente - cliente é undefined");
+console.log(conta3);
+// ContaCorrente { cliente: undefined, agencia: 102, _saldo: 0 }
+
+const conta4 = new ContaCorrente();
+conta4.cliente = null; // por DEFAULT é undefined, para ser null tem que dizer explicitamente
+//conta4.cliente.nome = "Nome"; // TypeError: Cannot set property 'nome' of null
+conta4.agencia = 102;
+console.log("\nConta sem cliente - cliente é null");
+console.log(conta4);
+// ContaCorrente { cliente: null, agencia: 102, _saldo: 0 }
+```
 
 ## Referências
 
