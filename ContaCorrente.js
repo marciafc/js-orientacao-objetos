@@ -28,7 +28,7 @@ export class ContaCorrente {
   constructor(agencia, cliente) {
     this.agencia = agencia;
     this.cliente = cliente; // está usando o acessor dentro da classe (valida se é do tipo Cliente)
-    ContaCorrente.numeroDeContas += 1;
+    ContaCorrente.numeroDeContas += 1; // incrementa o atributo static
   }
 
   sacar(valor) {

@@ -12,8 +12,12 @@ const cliente1 = new Cliente("Ricardo", 11122233309);
 //cliente1.cpf = 11122233309;
 
 console.log("\n");
+
 console.log(cliente1);
+//Cliente { nome: 'Ricardo', _cpf: 11122233309 }
+
 console.log(cliente1.cpf);
+//11122233309
 
 const contaCorrenteRicardo = new ContaCorrente(1001, cliente1);
 //contaCorrenteRicardo.agencia = 1001;
@@ -26,6 +30,16 @@ contaCorrenteRicardo.depositar(100);
 const valorSacado = contaCorrenteRicardo.sacar(50);
 contaCorrenteRicardo.depositar(500);
 
+console.log("\nConta do Ricardo");
+console.log(contaCorrenteRicardo);
+/**
+ ContaCorrente {
+  agencia: 1001,
+  _cliente: Cliente { nome: 'Ricardo', _cpf: 11122233309 },
+  _saldo: 650
+}
+ */
+
 const cliente2 = new Cliente("Alice", 88822233309);
 const conta2 = new ContaCorrente(102, cliente2);
 //conta2.cliente = cliente1;
@@ -34,14 +48,19 @@ const conta2 = new ContaCorrente(102, cliente2);
 //conta2.cliente.cpf = 88822233309;
 //conta2.agencia = 102;
 
-console.log("\nAcessando o cliente");
+console.log("\nAcessando o cliente Alice");
 console.log(conta2.cliente);
+//Cliente { nome: 'Alice', _cpf: 88822233309 }
 
-console.log("\nAcessando o saldo do cliente");
+console.log("\nAcessando o saldo do cliente Alice");
 console.log(conta2.saldo);
+//0
 
 // Como só há o modificador de acesso get no 'saldo', não permite fazer set
 //conta2.saldo = 100; // TypeError: Cannot set property saldo of #<ContaCorrente> which has only a getter
 
 let valor = 200;
 contaCorrenteRicardo.transferir(valor, conta2);
+
+console.log("Quantidade de contas: " + ContaCorrente.numeroDeContas);
+//Quantidade de contas: 2
