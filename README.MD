@@ -208,6 +208,41 @@ export class ContaCorrente {
 }
 ```
 
+- Usar sempre os atributos a partir de um acessor 'set' ou 'get'
+  - contaCorrenteRicardo.cliente;
+- Não é uma boa prática acessar o atributo prefixado com underline (private)
+
+  - contaCorrenteRicardo.\_cliente;
+
+- Atentar com isso no GET:
+
+```js
+
+  get cpf() {
+    // não esquecer return, senão será undefined
+    return this._cpf;
+  }
+
+```
+
+- Construtor
+
+```js
+
+  constructor(nome, cpf) {
+    this.nome = nome;
+    this._cpf = cpf;
+  }
+
+```
+
+- static
+
+```js
+  static numeroDeContas = 0;
+
+```
+
 ## Referências
 
 - [Instalando e gerenciando várias versões do Node.js com NVM](https://www.treinaweb.com.br/blog/instalando-e-gerenciando-varias-versoes-do-node-js-com-nvm/)

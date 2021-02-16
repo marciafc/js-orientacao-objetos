@@ -1,9 +1,12 @@
 import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente {
+  static numeroDeContas = 0;
+
   agencia;
 
   _cliente;
+  _saldo = 0;
 
   // Isso funciona com a atribuição de igualdade, não chamar como um método
   set cliente(novoValor) {
@@ -22,7 +25,11 @@ export class ContaCorrente {
     return this._saldo;
   }
 
-  _saldo = 0;
+  constructor(agencia, cliente) {
+    this.agencia = agencia;
+    this.cliente = cliente; // está usando o acessor dentro da classe (valida se é do tipo Cliente)
+    ContaCorrente.numeroDeContas += 1;
+  }
 
   sacar(valor) {
     if (this._saldo >= valor) {
